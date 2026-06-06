@@ -64,8 +64,7 @@ body {
   overscroll-behavior: none;
 }
 
-/* Títulos e nome da empresa: Space Grotesk (techy e legível) */
-h1, h2, h3, .brand-name { font-family: "Space Grotesk", "Orbitron", "Inter", sans-serif; }
+h1, h2, h3, .brand-name { font-family: "Orbitron", "Inter", sans-serif; }
 
 /* Barra de rolagem escura (Chrome/Edge/Safari e Firefox) */
 ::-webkit-scrollbar { width: 12px; }
