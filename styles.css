@@ -351,6 +351,66 @@ a { color: inherit; text-decoration: none; }
 .stat-label { color: var(--text-dim); font-size: 0.95rem; }
 
 /* ============================================================
+   APRESENTAÇÃO / FUNDADOR
+   ============================================================ */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 34px;
+}
+
+/* Moldura da foto (círculo com brilho ciano) */
+.profile-photo {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  padding: 4px;
+  background: var(--accent-grad);
+  box-shadow: var(--glow-cyan);
+}
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* preenche o círculo sem distorcer */
+  border-radius: 50%;
+  display: block;
+  background: var(--bg-soft);
+}
+/* Espaço reservado quando a foto ainda não existe (mostra um ícone) */
+.profile-photo.no-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-photo.no-photo::after {
+  content: "👤";
+  font-size: 4rem;
+  filter: grayscale(0.2);
+}
+
+.profile-text { text-align: left; }
+.profile-name { font-size: 1.7rem; margin-bottom: 4px; }
+.profile-role {
+  color: var(--cyan);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.profile-bio { color: var(--text-dim); margin-bottom: 22px; }
+.profile-links { display: flex; gap: 12px; flex-wrap: wrap; }
+.profile-links .btn { padding: 10px 22px; font-size: 0.95rem; }
+
+/* Em telas pequenas: empilha a foto sobre o texto, centralizado */
+@media (max-width: 720px) {
+  .profile { flex-direction: column; text-align: center; padding: 28px 22px; }
+  .profile-text { text-align: center; }
+  .profile-links { justify-content: center; }
+}
+
+/* ============================================================
    4) e 5) CARDS (Projetos e Serviços)
    ============================================================ */
 .cards {

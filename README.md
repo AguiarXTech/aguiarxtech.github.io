@@ -80,6 +80,11 @@ Substitua os arquivos dentro de **`assets/`** mantendo os mesmos nomes
 (`logo-aguiarxtech.png`, `logo-xtaskplan.png`, `logo-enternofuturo.png`).
 Use **PNG com fundo transparente** para melhor resultado.
 
+### Adicionar/trocar a foto de apresentação
+Coloque sua foto em **`assets/foto-perfil.jpg`** (de preferência **quadrada**,
+ex.: 600×600px). Enquanto o arquivo não existir, aparece um ícone reservado no
+lugar. O nome, cargo e texto ficam na seção `#fundador` do `index.html`.
+
 ### Ajustar o WhatsApp
 No `index.html`, procure por `wa.me/0000000000` e troque pelo seu número no
 formato internacional, ex.: `wa.me/5599999999999`.
