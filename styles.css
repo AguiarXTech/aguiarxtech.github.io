@@ -40,8 +40,12 @@
 
 html {
   scroll-behavior: smooth;
-  /* Cor de fundo escura: evita "faixa branca" ao rolar além do limite (overscroll) */
-  background: var(--bg-deep);
+  /* O gradiente fica no HTML (e não no body) para que o canvas das estrelas,
+     que tem z-index negativo, apareça por cima dele. Isso também evita a
+     "faixa branca" ao rolar além do limite (overscroll). */
+  background: radial-gradient(ellipse at 50% 0%, #0c1633 0%, var(--bg-soft) 35%, var(--bg-deep) 100%);
+  background-color: var(--bg-deep); /* fallback escuro */
+  background-attachment: fixed;
   /* Impede o efeito de "repique"/rubber-band no topo e no fim da página */
   overscroll-behavior: none;
 }
@@ -49,10 +53,9 @@ html {
 body {
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   color: var(--text);
-  /* Gradiente de fundo (o canvas das estrelas fica por cima deste gradiente) */
-  background: radial-gradient(ellipse at 50% 0%, #0c1633 0%, var(--bg-soft) 35%, var(--bg-deep) 100%);
-  background-color: var(--bg-deep); /* fallback escuro sob o gradiente */
-  background-attachment: fixed;
+  /* O body fica transparente: o gradiente está no <html> e o canvas das
+     estrelas (z-index negativo) aparece atrás do conteúdo. */
+  background: transparent;
   line-height: 1.6;
   overflow-x: hidden;
   overscroll-behavior: none;
