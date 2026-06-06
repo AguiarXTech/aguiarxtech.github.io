@@ -82,7 +82,7 @@
 
     // Ângulo entre ~25° e ~60° em relação à horizontal, na direção sorteada
     const angle = (Math.PI / 6) + Math.random() * (Math.PI / 3);
-    const speed = Math.random() * 5 + 5;       // velocidade variada
+    const speed = Math.random() * 2.5 + 2.5;   // velocidade variada (mais lenta)
     comets.push({
       x: startX,
       y: startY,
