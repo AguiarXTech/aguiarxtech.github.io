@@ -56,19 +56,40 @@
     }
   }
 
-  // Cria um cometa que cruza a tela na diagonal com rastro
+  // Cria um cometa que cruza a tela na diagonal, com rastro.
+  // Surge de posições variadas (topo, lateral esquerda ou direita) e
+  // em ângulos/velocidades diferentes, para parecer mais natural.
   function spawnComet() {
-    // Começa fora da tela (canto superior, posição horizontal aleatória)
-    const startX = Math.random() * width * 0.8;
-    const startY = -40;
-    const angle = (Math.PI / 4) + (Math.random() * 0.4 - 0.2); // ~45° em diagonal
-    const speed = Math.random() * 4 + 6;
+    // Sorteia a direção: -1 = desce para a esquerda, 1 = desce para a direita
+    const dir = Math.random() < 0.5 ? -1 : 1;
+
+    // Sorteia de qual borda o cometa entra na tela
+    const edge = Math.random();
+    let startX, startY;
+    if (edge < 0.55) {
+      // Entra pelo topo, em qualquer posição horizontal
+      startX = Math.random() * width;
+      startY = -40;
+    } else if (dir === 1) {
+      // Entra pela lateral esquerda (vai para a direita)
+      startX = -40;
+      startY = Math.random() * height * 0.5;
+    } else {
+      // Entra pela lateral direita (vai para a esquerda)
+      startX = width + 40;
+      startY = Math.random() * height * 0.5;
+    }
+
+    // Ângulo entre ~25° e ~60° em relação à horizontal, na direção sorteada
+    const angle = (Math.PI / 6) + Math.random() * (Math.PI / 3);
+    const speed = Math.random() * 5 + 5;       // velocidade variada
     comets.push({
       x: startX,
       y: startY,
-      vx: Math.cos(angle) * speed,
+      vx: Math.cos(angle) * speed * dir,
       vy: Math.sin(angle) * speed,
-      len: Math.random() * 160 + 120, // comprimento do rastro
+      len: Math.random() * 200 + 110,          // comprimento do rastro
+      width: Math.random() * 1.4 + 1.6,        // espessura do rastro
       life: 0
     });
   }
@@ -103,7 +124,7 @@
       grad.addColorStop(1, "rgba(59, 130, 246, 0)");
 
       ctx.strokeStyle = grad;
-      ctx.lineWidth = 2.2;
+      ctx.lineWidth = c.width || 2.2;
       ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(c.x, c.y);
@@ -119,8 +140,8 @@
       ctx.fill();
       ctx.shadowBlur = 0;
 
-      // Remove o cometa quando sai da tela
-      if (c.x > width + 200 || c.y > height + 200) {
+      // Remove o cometa quando sai da tela (por qualquer borda)
+      if (c.x > width + 200 || c.x < -200 || c.y > height + 200) {
         comets.splice(i, 1);
       }
     }
@@ -131,10 +152,12 @@
     ctx.clearRect(0, 0, width, height);
     drawStars(t);
 
-    // Gera cometas em intervalos aleatórios (3s a 9s)
+    // Gera cometas em intervalos aleatórios e curtos (0,8s a 3s).
+    // De vez em quando dispara 2 de uma vez, em posições diferentes.
     if (t > nextCometAt) {
       spawnComet();
-      nextCometAt = t + (Math.random() * 6000 + 3000);
+      if (Math.random() < 0.35) spawnComet();
+      nextCometAt = t + (Math.random() * 2200 + 800);
     }
     drawComets();
 
