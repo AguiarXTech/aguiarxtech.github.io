@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       SEO BÁSICO  (edite título e descrição livremente)
+       ============================================================ -->
+  <title>AguiarXTech — Tecnologia e automação para o futuro</title>
+  <meta name="description" content="AguiarXTech é uma empresa de tecnologia focada em desenvolvimento de software, automação de processos e soluções com inteligência artificial." />
+  <meta name="author" content="AguiarXTech" />
+  <meta name="theme-color" content="#050814" />
+
+  <!-- Open Graph (compartilhamento em redes sociais) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AguiarXTech — Tecnologia e automação para o futuro" />
+  <meta property="og:description" content="Desenvolvimento de software, automação de processos e soluções com inteligência artificial." />
+  <meta property="og:image" content="assets/logo-aguiarxtech.png" />
+  <meta property="og:url" content="https://aguiarxtech.github.io" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (águia da AguiarXTech) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="assets/logo-aguiarxtech.png" />
+  <link rel="apple-touch-icon" href="assets/logo-aguiarxtech.png" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Fonte (com fallback para sistema caso esteja offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- ============================================================
+       CANVAS DO CÉU ESTRELADO + COMETAS  (fica atrás de tudo)
+       O desenho é feito em JavaScript no arquivo script.js
+       ============================================================ -->
+  <canvas id="space-canvas" aria-hidden="true"></canvas>
+
+  <!-- Link de acessibilidade: pular direto para o conteúdo -->
+  <a href="#sobre" class="skip-link">Pular para o conteúdo</a>
+
+  <!-- ============================================================
+       1) MENU FIXO NO TOPO
+       ============================================================ -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-inner" aria-label="Navegação principal">
+      <a href="#topo" class="brand" aria-label="Início — AguiarXTech">
+        <img src="assets/logo-aguiarxtech.png" alt="Logo AguiarXTech" class="brand-logo" />
+        <span class="brand-name">AguiarX<span class="accent">Tech</span></span>
+      </a>
+
+      <!-- Botão do menu mobile (hambúrguer) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         2) HERO EM TELA CHEIA
+         ============================================================ -->
+    <section class="hero" id="topo">
+      <div class="hero-content">
+        <img src="assets/logo-aguiarxtech.png" alt="Logo da AguiarXTech — águia em estilo tecnológico" class="hero-logo" />
+        <h1 class="hero-title">AguiarX<span class="accent">Tech</span></h1>
+        <p class="hero-tagline">Tecnologia e automação para o futuro</p>
+        <a href="#contato" class="btn btn-glow">Entre em contato</a>
+      </div>
+
+      <!-- Indicador de "role para baixo" -->
+      <a href="#sobre" class="scroll-cue" aria-label="Rolar para baixo">
+        <span class="mouse"></span>
+      </a>
+    </section>
+
+    <!-- ============================================================
+         3) SOBRE
+         ============================================================ -->
+    <section class="section" id="sobre">
+      <div class="container reveal">
+        <h2 class="section-title">Sobre <span class="accent">nós</span></h2>
+        <p class="section-lead">
+          A <strong>AguiarXTech</strong> é uma empresa de tecnologia focada em
+          <strong>desenvolvimento de software</strong>, <strong>automação de processos</strong>
+          e <strong>soluções com inteligência artificial</strong>. Unimos código e inovação
+          para tornar tarefas do dia a dia mais simples e inteligentes, e acreditamos em
+          democratizar o conhecimento em tecnologia.
+        </p>
+
+        <!-- Pequenos números/destaques (ajuste como quiser) -->
+        <div class="stats">
+          <div class="stat glass">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Soluções sob medida</span>
+          </div>
+          <div class="stat glass">
+            <span class="stat-num">IA</span>
+            <span class="stat-label">No centro de cada projeto</span>
+          </div>
+          <div class="stat glass">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">Vontade de inovar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4) PROJETOS
+         ============================================================ -->
+    <section class="section" id="projetos">
+      <div class="container">
+        <h2 class="section-title reveal">Nossos <span class="accent">projetos</span></h2>
+
+        <div class="cards">
+          <!-- XTaskPlan -->
+          <article class="card glass reveal">
+            <div class="card-logo-wrap">
+              <img src="assets/logo-xtaskplan.png" alt="Logo do XTaskPlan" class="card-logo" />
+            </div>
+            <h3 class="card-title">XTaskPlan</h3>
+            <p class="card-text">
+              Aplicativo de produtividade que gera <strong>roadmaps de tarefas com apoio de IA</strong>,
+              sincroniza automaticamente com o <strong>Microsoft To Do</strong> e envia relatórios
+              diário e semanal das suas tarefas pelo <strong>WhatsApp</strong>.
+            </p>
+            <a class="btn btn-outline" href="https://github.com/AguiarXTech/XTaskPlan" target="_blank" rel="noopener">
+              Ver no GitHub
+            </a>
+          </article>
+
+          <!-- Enter no Futuro -->
+          <article class="card glass reveal">
+            <span class="badge">Em breve</span>
+            <div class="card-logo-wrap">
+              <img src="assets/logo-enternofuturo.png" alt="Logo do projeto Enter no Futuro" class="card-logo" />
+            </div>
+            <h3 class="card-title">Enter no Futuro</h3>
+            <p class="card-text">
+              Plataforma de <strong>cursos gratuitos</strong> com dezenas de cursos nas áreas de
+              tecnologia e educação em geral. É a provedora oficial das palestras, mini-cursos e
+              cursos da AguiarXTech, com a missão de <strong>democratizar o acesso ao conhecimento</strong>.
+            </p>
+            <a class="btn btn-outline" href="#contato">Saiba mais</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5) SERVIÇOS
+         ============================================================ -->
+    <section class="section" id="servicos">
+      <div class="container">
+        <h2 class="section-title reveal">O que <span class="accent">fazemos</span></h2>
+
+        <div class="cards services">
+          <article class="card glass reveal">
+            <div class="icon" aria-hidden="true">&lt;/&gt;</div>
+            <h3 class="card-title">Desenvolvimento de Software</h3>
+            <p class="card-text">Aplicações sob medida, do conceito à entrega.</p>
+          </article>
+
+          <article class="card glass reveal">
+            <div class="icon" aria-hidden="true">⚙️</div>
+            <h3 class="card-title">Automação de Processos</h3>
+            <p class="card-text">Integrações que eliminam tarefas manuais e repetitivas.</p>
+          </article>
+
+          <article class="card glass reveal">
+            <div class="icon" aria-hidden="true">🔌</div>
+            <h3 class="card-title">Integração de APIs</h3>
+            <p class="card-text">Conectamos sistemas (ex.: Microsoft Graph, WhatsApp e outros).</p>
+          </article>
+
+          <article class="card glass reveal">
+            <div class="icon" aria-hidden="true">🤖</div>
+            <h3 class="card-title">Soluções com IA</h3>
+            <p class="card-text">Uso de inteligência artificial para gerar valor real.</p>
+          </article>
+
+          <article class="card glass reveal">
+            <div class="icon" aria-hidden="true">🎓</div>
+            <h3 class="card-title">Educação &amp; Treinamentos</h3>
+            <p class="card-text">Palestras, mini-cursos e cursos (via Enter no Futuro).</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6) CONTATO
+         ============================================================ -->
+    <section class="section" id="contato">
+      <div class="container reveal contact">
+        <h2 class="section-title">Vamos <span class="accent">conversar</span></h2>
+        <p class="section-lead">
+          Tem uma ideia, projeto ou quer saber mais sobre o que fazemos? Fale com a gente.
+        </p>
+
+        <div class="contact-links">
+          <!-- E-mail -->
+          <a class="contact-card glass" href="mailto:aguiarxtech@gmail.com">
+            <span class="contact-icon" aria-hidden="true">✉️</span>
+            <span class="contact-label">E-mail</span>
+            <span class="contact-value">aguiarxtech@gmail.com</span>
+          </a>
+
+          <!-- GitHub -->
+          <a class="contact-card glass" href="https://github.com/AguiarXTech" target="_blank" rel="noopener">
+            <span class="contact-icon" aria-hidden="true">🐙</span>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">@AguiarXTech</span>
+          </a>
+
+          <!-- WhatsApp (troque o número no href; formato: 55DDDNÚMERO) -->
+          <a class="contact-card glass" href="https://wa.me/5533988860904?text=Ol%C3%A1%20AguiarXTech!" target="_blank" rel="noopener">
+            <span class="contact-icon" aria-hidden="true">💬</span>
+            <span class="contact-label">WhatsApp</span>
+            <span class="contact-value">Enviar mensagem</span>
+          </a>
+        </div>
+
+        <a href="mailto:aguiarxtech@gmail.com" class="btn btn-glow">Entre em contato</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       7) RODAPÉ
+       ============================================================ -->
+  <footer class="footer">
+    <p>© <span id="year"></span> AguiarXTech — Todos os direitos reservados.</p>
+    <p class="footer-tag">Enter no Futuro 🚀</p>
+  </footer>
+
+  <!-- JavaScript (canvas, animações, menu) -->
+  <script src="script.js"></script>
+</body>
+</html>
