@@ -40,6 +40,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Diz ao navegador que o tema é escuro: deixa a barra de rolagem e os
+     fundos padrão escuros, eliminando a "moldura clara" nas bordas. */
+  color-scheme: dark;
   /* O gradiente fica no HTML (e não no body) para que o canvas das estrelas,
      que tem z-index negativo, apareça por cima dele. Isso também evita a
      "faixa branca" ao rolar além do limite (overscroll). */
@@ -62,6 +65,17 @@ body {
 }
 
 h1, h2, h3, .brand-name { font-family: "Orbitron", "Inter", sans-serif; }
+
+/* Barra de rolagem escura (Chrome/Edge/Safari e Firefox) */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb {
+  background: #1b2747;
+  border-radius: 10px;
+  border: 3px solid var(--bg-deep);
+}
+::-webkit-scrollbar-thumb:hover { background: #28406e; }
+html { scrollbar-color: #1b2747 var(--bg-deep); scrollbar-width: thin; }
 
 img { max-width: 100%; display: block; }
 
