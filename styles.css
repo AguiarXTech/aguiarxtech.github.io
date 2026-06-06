@@ -5,6 +5,18 @@
    mudar cores rapidamente.
    ============================================================ */
 
+/* ---------- FONTE AZONIX (hospedada localmente) ----------
+   Usada nos títulos e no nome da empresa. É uma fonte só de
+   MAIÚSCULAS; letras com acento (ç, ã, õ, etc.) usam o fallback
+   (Orbitron), que também tem visual tecnológico. */
+@font-face {
+  font-family: "Azonix";
+  src: url("assets/fonts/Azonix.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ---------- VARIÁVEIS GLOBAIS (paleta e medidas) ---------- */
 :root {
   /* Fundo */
@@ -64,7 +76,8 @@ body {
   overscroll-behavior: none;
 }
 
-h1, h2, h3, .brand-name { font-family: "Orbitron", "Inter", sans-serif; }
+/* Títulos e nome da empresa usam a Azonix (fallback: Orbitron) */
+h1, h2, h3, .brand-name { font-family: "Azonix", "Orbitron", "Inter", sans-serif; }
 
 /* Barra de rolagem escura (Chrome/Edge/Safari e Firefox) */
 ::-webkit-scrollbar { width: 12px; }
